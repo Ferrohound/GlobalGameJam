@@ -11,6 +11,7 @@ public class Transmit : MonoBehaviour {
 	RaycastHit target;
 	public LayerMask posessable;
 	
+	public int maxReflections = 2;
 	public float maxStepDistance = 50;
 
 	// Use this for initialization
@@ -36,6 +37,7 @@ public class Transmit : MonoBehaviour {
 			//don't even really need any of this, I guess...
 			//just shoot yourself in the direction of the ray
 			
+			if(ReflectRays(cam.transform.position, cam.transform.forward, maxReflections))
 			{
 				transform.parent = target.transform;
 				transform.localPosition = Vector3.up;
