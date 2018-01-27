@@ -101,6 +101,9 @@ public class Transmit : MonoBehaviour {
          if (bounces.Count>=2)
            Debug.Log(bounces[0] + " " + bounces[1]);
             */
+
+
+
         lr.positionCount = bounces.Count + 1;
         lr.SetPosition(0, transform.position);
         for (int i = 1; i <= bounces.Count; i++)
