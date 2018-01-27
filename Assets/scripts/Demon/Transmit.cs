@@ -39,6 +39,11 @@ public class Transmit : MonoBehaviour {
 			
 			if(ReflectRays(cam.transform.position, cam.transform.forward, maxReflections))
 			{
+				if(transform.parent!=null)
+				{
+					//fix this
+					transform.parent.gameObject.layer = LayerMask.NameToLayer("possessable");
+				}
 				transform.parent = target.transform;
 				transform.localPosition = Vector3.up;
 				target.transform.gameObject.layer = (1<<1);

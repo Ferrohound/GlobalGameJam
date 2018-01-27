@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Demon
   - possessable
+  - possessed
   layers:
   - Default
   - TransparentFX
