@@ -10,44 +10,43 @@ public class Transmit : MonoBehaviour {
 	Ray reflectedRay;
 	RaycastHit target;
 	public LayerMask posessable;
-	
+    public Transform wheretoshootfrom;
+    public GameObject pp;
 	public int maxReflections = 2;
 	public float maxStepDistance = 50;
-
-	// Use this for initialization
-	void Start () 
+    private List<Vector3> bounces;
+    private bool haveshoot = false;
+    private GameObject pproj;
+    // Use this for initialization
+    void Start () 
 	{
 		cam = Camera.main;
+        
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		//Gizmos.color = Color.red;
-		//Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
-		ray = new Ray(cam.transform.position, cam.transform.forward);
+        bounces = new List<Vector3>();
+        //Gizmos.color = Color.red;
+        //Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+        ray = new Ray(cam.transform.position, cam.transform.forward);
 		RaycastHit hit;
 		
 		//Debug.DrawLine(cam.transform.position, cam.transform.forward, Color.red);
 		//Gizmos.DrawRay(cam.transform.position, ray.direction);
 		//Debug.Log("Direction of ray: " + ray.direction);
 		//do this when mouse is pressed
-		if(Input.GetMouseButton/*Down*/(0))
+		if(Input.GetMouseButton/*Down*/(0) && !haveshoot)
 		{
-			//don't even really need any of this, I guess...
-			//just shoot yourself in the direction of the ray
-			
-			if(ReflectRays(cam.transform.position, cam.transform.forward, maxReflections))
-			{
-				if(transform.parent!=null)
-				{
-					//fix this
-					transform.parent.gameObject.layer = LayerMask.NameToLayer("possessable");
-				}
-				transform.parent = target.transform;
-				transform.localPosition = Vector3.up;
-				target.transform.gameObject.layer = (1<<1);
-			}
+            //don't even really need any of this, I guess...
+            //just shoot yourself in the direction of the ray
+            haveshoot = true;
+            bool temp=ReflectRays(cam.transform.position, cam.transform.forward, maxReflections);
+            pproj = Instantiate(pp, wheretoshootfrom.position, wheretoshootfrom.rotation);
+            pproj.GetComponent<bounce2point>().pointstofollow = new List<Vector3>(bounces);
+            
+            
 			
 			 /*if (Physics.Raycast(ray, out hit))
 			 {
@@ -68,9 +67,41 @@ public class Transmit : MonoBehaviour {
 				}
 			 }*/
 		}
+        if ( pproj!=null &&pproj.GetComponent<bounce2point>().gottem == true)
+        {
+            if (transform.parent != null)
+            {
+                //fix this
+                transform.parent.gameObject.layer = LayerMask.NameToLayer("possessable");
+
+            }
+            Debug.Log("Hitsdsdsdwfes!");
+            
+            transform.parent = pproj.GetComponent<bounce2point>().target.transform;
+            transform.parent.gameObject.layer= LayerMask.NameToLayer("unpossessable");
+            transform.localPosition = Vector3.up;
+            
+            
+            haveshoot = false;
+            Destroy(pproj);
+            pproj = null;
+        }
+        else if (pproj != null && pproj.GetComponent<bounce2point>().gottem != true &&  pproj.GetComponent<bounce2point>().end == true)
+        {
+            Debug.Log("Hitsdsdsdwsdsdsdsdsdsfes!");
+            haveshoot = false;
+            Destroy(pproj);
+            pproj = null;
+        }
         /*else
-            print("I'm looking at nothing!");*/
-	}
+            print("I'm looking at nothing!");
+         if (bounces.Count>=2)
+           Debug.Log(bounces[0] + " " + bounces[1]);
+            */
+
+
+
+    }
 	
 	bool ReflectRays(Vector3 position, Vector3 direction, int remaining)
 	{
@@ -88,19 +119,23 @@ public class Transmit : MonoBehaviour {
 				//transform.parent = hit.transform;
 				//transform.localPosition = Vector3.up;
 				target = hit;
-				return true;
+                bounces.Add(hit.transform.position);
+                return true;
 			}
 			
             direction = Vector3.Reflect(direction, hit.normal);
             position = hit.point;
+            bounces.Add(position);
         }
 		
 		else
         {
             position += direction * maxStepDistance;
+            bounces.Add(position);
         }
-		
-		Debug.DrawLine(original, position, Color.green);
+        
+
+        //Debug.DrawLine(original, position, Color.green);
 		
 		return ReflectRays(position, direction, remaining-1);
 		
@@ -113,13 +148,13 @@ public class Transmit : MonoBehaviour {
 	
 	void OnDrawGizmos()
 	{
-		/*Handles.color = Color.red;
+		Handles.color = Color.red;
 		Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(this.transform.position, 0.25f);
 		
 		Gizmos.color = Color.red;
 		if(cam!=null)
-			Gizmos.DrawRay(cam.transform.position, ray.direction * 100);*/
+			Gizmos.DrawRay(cam.transform.position, ray.direction * 100);
 	}
 }
