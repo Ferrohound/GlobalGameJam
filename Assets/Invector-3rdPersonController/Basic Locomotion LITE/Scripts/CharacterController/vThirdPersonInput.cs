@@ -70,7 +70,7 @@ namespace Invector.CharacterController
         protected virtual void Update()
         {
             cc.UpdateMotor();                   // call ThirdPersonMotor methods               
-            cc.UpdateAnimator();                // call ThirdPersonAnimator methods		               
+            //cc.UpdateAnimator();                // call ThirdPersonAnimator methods		               
         }
 
         protected virtual void InputHandle()

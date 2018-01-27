@@ -13,4 +13,11 @@ public class Mortal : MonoBehaviour {
 	void Update () {
 		
 	}
+	
+	//self-destruct in a given period of time
+	//instantiate something?
+	void SelfDestruct(float time)
+	{
+		
+	}
 }

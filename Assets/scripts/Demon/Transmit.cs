@@ -26,6 +26,8 @@ public class Transmit : MonoBehaviour {
 		//do this when mouse is pressed
 		if(Input.GetMouseButtonDown(0))
 		{
+			//don't even really need any of this, I guess...
+			//just shoot yourself in the direction of the ray
 			 if (Physics.Raycast(ray, out hit))
 			 {
 				 Debug.Log("Hit!");
