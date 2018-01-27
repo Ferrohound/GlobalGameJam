@@ -41,6 +41,7 @@ public class Transmit : MonoBehaviour {
 			{
 				transform.parent = target.transform;
 				transform.localPosition = Vector3.up;
+				target.transform.gameObject.layer = (1<<1);
 			}
 			
 			 /*if (Physics.Raycast(ray, out hit))
@@ -68,7 +69,7 @@ public class Transmit : MonoBehaviour {
 	
 	bool ReflectRays(Vector3 position, Vector3 direction, int remaining)
 	{
-		if(reflectionsRemaining == 0)
+		if(remaining == 0)
 			return false;
 		
 		Vector3 original = position;
