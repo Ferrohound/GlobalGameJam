@@ -23,20 +23,25 @@ public class Transmit : MonoBehaviour {
 		RaycastHit hit;
 		//Gizmos.DrawRay(cam.transform.position, ray.direction);
 		//Debug.Log("Direction of ray: " + ray.direction);
-		
-		 if (Physics.Raycast(ray, out hit))
-		 {
-			 Debug.Log("Hit!");
-            
-			if(hit.transform.gameObject.tag == "possessable")
-			{
-				Debug.Log("Looks like a target!");
-			}
-			else
-			{
-				Debug.Log(hit.transform.tag);
-			}
-		 }
+		//do this when mouse is pressed
+		if(Input.GetMouseButtonDown(0))
+		{
+			 if (Physics.Raycast(ray, out hit))
+			 {
+				 Debug.Log("Hit!");
+				
+				if(hit.transform.gameObject.tag == "possessable")
+				{
+					Debug.Log("Looks like a target!");
+					transform.parent = hit.transform;
+					transform.localPosition = Vector3.up;
+				}
+				else
+				{
+					Debug.Log(hit.transform.tag);
+				}
+			 }
+		}
         /*else
             print("I'm looking at nothing!");*/
 	}

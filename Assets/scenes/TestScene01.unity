@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a03a5451393d44b9a6718ec78b8e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1475095753}
+  target: {fileID: 0}
   speed: 5
   turnD: 0.74
   turnSpeed: 3
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a03a5451393d44b9a6718ec78b8e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1475095753}
+  target: {fileID: 0}
   speed: 5
   turnD: 0.74
   turnSpeed: 3
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a03a5451393d44b9a6718ec78b8e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1475095753}
+  target: {fileID: 0}
   speed: 5
   turnD: 0.74
   turnSpeed: 3
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a03a5451393d44b9a6718ec78b8e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1475095753}
+  target: {fileID: 0}
   speed: 5
   turnD: 0.74
   turnSpeed: 3
@@ -1497,7 +1497,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1699827829}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -1594,8 +1594,8 @@ MonoBehaviour:
     m_Bits: 1
   groundMinDistance: 0.2
   groundMaxDistance: 0.5
-  locomotionType: 0
-  lockMovement: 0
+  locomotionType: 1
+  lockMovement: 1
   freeRotationSpeed: 10
   strafeRotationSpeed: 10
   jumpAirControl: 1
@@ -1676,7 +1676,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &1710837749
 GameObject:
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a03a5451393d44b9a6718ec78b8e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1475095753}
+  target: {fileID: 0}
   speed: 5
   turnD: 0.74
   turnSpeed: 3
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a03a5451393d44b9a6718ec78b8e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1475095753}
+  target: {fileID: 0}
   speed: 5
   turnD: 0.74
   turnSpeed: 3
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a03a5451393d44b9a6718ec78b8e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1475095753}
+  target: {fileID: 0}
   speed: 5
   turnD: 0.74
   turnSpeed: 3
