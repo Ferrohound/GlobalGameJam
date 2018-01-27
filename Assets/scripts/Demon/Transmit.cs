@@ -6,6 +6,7 @@ using UnityEditor;
 public class Transmit : MonoBehaviour {
 	
 	public Camera cam;
+    private LineRenderer lr;
 	Ray ray;
 	Ray reflectedRay;
 	RaycastHit target;
@@ -22,27 +23,29 @@ public class Transmit : MonoBehaviour {
 	{
 		cam = Camera.main;
         
+        
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+        lr = GetComponent<LineRenderer>();
         bounces = new List<Vector3>();
         //Gizmos.color = Color.red;
         //Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         ray = new Ray(cam.transform.position, cam.transform.forward);
 		RaycastHit hit;
-		
-		//Debug.DrawLine(cam.transform.position, cam.transform.forward, Color.red);
-		//Gizmos.DrawRay(cam.transform.position, ray.direction);
-		//Debug.Log("Direction of ray: " + ray.direction);
-		//do this when mouse is pressed
-		if(Input.GetMouseButton/*Down*/(0) && !haveshoot)
+        bool temp = ReflectRays(cam.transform.position, cam.transform.forward, maxReflections);
+        //Debug.DrawLine(cam.transform.position, cam.transform.forward, Color.red);
+        //Gizmos.DrawRay(cam.transform.position, ray.direction);
+        //Debug.Log("Direction of ray: " + ray.direction);
+        //do this when mouse is pressed
+        if (Input.GetMouseButton/*Down*/(0) && !haveshoot)
 		{
             //don't even really need any of this, I guess...
             //just shoot yourself in the direction of the ray
             haveshoot = true;
-            bool temp=ReflectRays(cam.transform.position, cam.transform.forward, maxReflections);
+            
             pproj = Instantiate(pp, wheretoshootfrom.position, wheretoshootfrom.rotation);
             pproj.GetComponent<bounce2point>().pointstofollow = new List<Vector3>(bounces);
             
@@ -99,6 +102,12 @@ public class Transmit : MonoBehaviour {
            Debug.Log(bounces[0] + " " + bounces[1]);
             */
 
+
+
+        lr.positionCount = bounces.Count + 1;
+        lr.SetPosition(0, transform.position);
+        for (int i = 1; i <= bounces.Count; i++)
+            lr.SetPosition(i, bounces[i-1]);
 
 
     }
