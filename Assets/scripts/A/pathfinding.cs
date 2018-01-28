@@ -9,7 +9,7 @@ public class pathfinding : MonoBehaviour {
 	//PathManager manager;
 	
 	public Grid grid;
-	public Transform seeker, target;
+	//public Transform seeker, target;
 	
 	//Node startNode, targetNode;
 

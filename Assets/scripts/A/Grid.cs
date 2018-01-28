@@ -12,6 +12,9 @@ public class Grid : MonoBehaviour {
 	
 	int resolutionX, resolutionY;
 	
+	public Transform target;
+	Node t;
+	
 	public int MaxSize()
 	{
 		return resolutionX * resolutionY;
@@ -96,14 +99,22 @@ public class Grid : MonoBehaviour {
 	{
 		Gizmos.DrawWireCube(transform.position, new Vector3(gridSize.x, 1, gridSize.y));
 		
-		/*if(grid!=null)
+		if(grid!=null)
 		{
+			t = WorldtoNode(target.localPosition);
 			foreach( Node n in grid)
 			{
-				Gizmos.color = (n.walkable) ? Color.white : Color.red;
+				if(t == n)
+				{
+					Gizmos.color = Color.yellow;
+				}
+				else
+				{
+					Gizmos.color = (n.walkable) ? Color.white : Color.red;
+				}
 				Gizmos.DrawCube(n.position, Vector3.one * (nodeDiameter - 0.1f));
 			}
-		}*/
+		}
 		
 	}
 	
