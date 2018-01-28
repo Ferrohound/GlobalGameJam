@@ -3,8 +3,13 @@
       _MainTex ("Texture Image", 2D) = "white" {}
       _ScaleX ("Scale X", Float) = 1.0
       _ScaleY ("Scale Y", Float) = 1.0
+	  _Transparency("Transparency", Range(0.0, 1.0)) = 1.0
    }
    SubShader {
+	   Tags { "RenderType" = "Transparent" }
+	   
+	   //ZWrite Off
+	   Blend SrcAlpha OneMinusSrcAlpha
       Pass {   
          CGPROGRAM
  
@@ -15,6 +20,7 @@
          uniform sampler2D _MainTex;        
          uniform float _ScaleX;
          uniform float _ScaleY;
+		 uniform float _Transparency;
 
          struct vertexInput {
             float4 vertex : POSITION;
@@ -44,7 +50,7 @@
 			 float4 tex = tex2D(_MainTex, input.tex.xy);
 			 if(tex.a == 0)
 				 discard;
-			 return tex;
+			 return tex * _Transparency;
             //return tex2D(_MainTex, float2(input.tex.xy));   
          }
  

@@ -34,6 +34,12 @@ public class NPCGlow : MonoBehaviour {
 		{	
 			_materials.AddRange(renderer.materials);
 		}
+			
+		if(Vector3.Distance(transform.position, player.position)<3.5f)
+		{
+			Debug.Log("BLAH!");
+			_targetColor = Color.clear;
+		}
 	}
 
 	private void OnMouseEnter()
@@ -66,17 +72,35 @@ public class NPCGlow : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider col)
 	{
-		if(col.tag!="player")
+		if(col.tag!="Player")
+		{
+			Debug.Log("Not you!");
 			return;
+		}
 		
+		Debug.Log("Glowing");
 		_targetColor = GlowColor;
 		enabled = true;
 		
 	}
 	
+	void OnTriggerStay(Collider col)
+	{
+		//Debug.Log("Tag is " + col.tag);
+		if(col.tag!="Player")
+		{
+			//D/ebug.Log("Not you!");
+			return;
+		}
+		
+		Debug.Log("Glowing");
+		_targetColor = GlowColor;
+		enabled = true;
+	}
+	
 	void OnTriggerExit(Collider col)
 	{
-		if(col.tag!="player")
+		if(col.tag!="Player")
 			return;
 		
 		_targetColor = Color.clear;
@@ -92,12 +116,12 @@ public class NPCGlow : MonoBehaviour {
 
 		for (int i = 0; i < _materials.Count; i++)
 		{
-			_materials[i].SetColor("_GlowColor", _currentColor);
+			_materials[i].SetColor("_OutlineColor", _currentColor);
 		}
 
-		if (_currentColor.Equals(_targetColor))
-		{
-			enabled = false;
-		}
+		//if (_currentColor.Equals(_targetColor))
+		//{
+			//enabled = false;
+		//}
 	}
 }
