@@ -15,6 +15,8 @@ public class PathManager : MonoBehaviour {
 	void Awake()
 	{
 		instance = this;
+		if(this!=instance)
+			Destroy(this);
 		p = GetComponent<pathfinding>();
 	}
 	

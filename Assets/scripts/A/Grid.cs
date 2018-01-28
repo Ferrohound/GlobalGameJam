@@ -56,8 +56,8 @@ public class Grid : MonoBehaviour {
 	public Node WorldtoNode(Vector3 position)
 	{
 		//center is 0
-		float pX = (position.x + gridSize.x/2)/gridSize.x;
-		float pY = (position.z + gridSize.y/2)/gridSize.y;
+		float pX = (transform.position.x - position.x + gridSize.x/2)/gridSize.x;
+		float pY = (transform.position.z - position.z + gridSize.y/2)/gridSize.y;
 		
 		pX = Mathf.Clamp01(pX);
 		pY = Mathf.Clamp01(pY);
@@ -96,14 +96,14 @@ public class Grid : MonoBehaviour {
 	{
 		Gizmos.DrawWireCube(transform.position, new Vector3(gridSize.x, 1, gridSize.y));
 		
-		/*if(grid!=null)
+		if(grid!=null)
 		{
 			foreach( Node n in grid)
 			{
 				Gizmos.color = (n.walkable) ? Color.white : Color.red;
 				Gizmos.DrawCube(n.position, Vector3.one * (nodeDiameter - 0.1f));
 			}
-		}*/
+		}
 		
 	}
 	

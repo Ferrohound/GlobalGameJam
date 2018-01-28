@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour {
 	
+	public Grid grid;
 	public Transform target;
 	public float speed = 0.5f;
 	public float turnD = 5f;
@@ -28,6 +29,11 @@ public class Unit : MonoBehaviour {
 	{
 		if(result)
 		{
+			/*for(int i = 0; i < waypoints.Length ; i++)
+			{
+				waypoints[i] = grid.transform.position - waypoints[i];
+			}*/
+			
 			path = new Path(waypoints, transform.position, turnD, stoppingD);
 			StopCoroutine("FollowPath");
 			StartCoroutine("FollowPath");
