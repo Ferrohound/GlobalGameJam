@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(NPCGlow))]
 public class Mortal : MonoBehaviour {
@@ -82,11 +83,7 @@ public class Mortal : MonoBehaviour {
 			aura.SetActive(true);
 			p = true;
 		}
-			
-		/*if(p && gameObject.layer != LayerMask.NameToLayer("unpossessable"))
-		{
-			StartCoroutine("SelfDestruct", (timer - elapsed));
-		}*/
+
 		if (p && elapsed < timer)
 		{
 			elapsed+=Time.deltaTime;
@@ -100,7 +97,18 @@ public class Mortal : MonoBehaviour {
 			if(state < 0)
 			{
 				Instantiate(deathAnim, transform.position, transform.rotation);
-				Destroy(this.gameObject);
+				
+				//player still on you, game over
+				if(gameObject.layer == LayerMask.NameToLayer("unpossessable"))
+				{
+					Player.transform.position = new Vector3(-7.22f, 2.594f, 20.49f);
+					Player.host = null;
+					SceneManager.LoadScene("Level01");
+				}
+				else
+				{
+					Destroy(this.gameObject);
+				}
 			}
 			
 			//show damage and reset timer

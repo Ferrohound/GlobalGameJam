@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Transmit : MonoBehaviour {
+	
+	public static Transmit Instance;
+	
     static int life=3;
 	public Camera cam;
     private LineRenderer lr;
@@ -19,6 +22,19 @@ public class Transmit : MonoBehaviour {
     private GameObject pproj;
 	
 	public Transform host;
+	
+	void Awake()
+	{
+		if(Instance == null)
+		{
+			DontDestroyOnLoad(gameObject);
+			Instance = this;
+		}
+		else if(Instance!= this)
+		{
+			Destroy(gameObject);
+		}
+	}
     // Use this for initialization
     void Start () 
 	{
