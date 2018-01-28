@@ -94,7 +94,7 @@ public class Grid : MonoBehaviour {
 	
 	void OnDrawGizmos()
 	{
-		Gizmos.DrawWireCube(transform.position, new Vector3(gridSize.x, 1, gridSize.y));
+		/*Gizmos.DrawWireCube(transform.position, new Vector3(gridSize.x, 1, gridSize.y));
 		
 		if(grid!=null)
 		{
@@ -103,7 +103,7 @@ public class Grid : MonoBehaviour {
 				Gizmos.color = (n.walkable) ? Color.white : Color.red;
 				Gizmos.DrawCube(n.position, Vector3.one * (nodeDiameter - 0.1f));
 			}
-		}
+		}*/
 		
 	}
 	

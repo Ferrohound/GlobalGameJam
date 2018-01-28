@@ -48,7 +48,7 @@ public class Transmit : MonoBehaviour {
         //Gizmos.DrawRay(cam.transform.position, ray.direction);
         //Debug.Log("Direction of ray: " + ray.direction);
         //do this when mouse is pressed
-        if (Input.GetMouseButton/*Down*/(0) && !haveshoot)
+        if (Input.GetMouseButtonDown(0) && !haveshoot)
 		{
             //don't even really need any of this, I guess...
             //just shoot yourself in the direction of the ray
