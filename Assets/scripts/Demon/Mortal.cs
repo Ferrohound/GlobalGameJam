@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(NPCGlow))]
 public class Mortal : MonoBehaviour {
+	
+	//camera shake
+	CameraShake shake;
 	
 	public GameObject aura;
 	public Transmit Player;
@@ -19,6 +23,8 @@ public class Mortal : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		shake = Camera.main.GetComponent<CameraShake>();
+		
 		original = transform.position;
 		Player = GameObject.Find("Demon").GetComponent<Transmit>();
 		glow = GetComponent<NPCGlow>();
@@ -60,8 +66,9 @@ public class Mortal : MonoBehaviour {
 				transform.Translate(movement * Time.deltaTime * 3);
 		}
 		
-		if(gameObject.layer == LayerMask.NameToLayer("unpossessable"))
+		if(gameObject.layer == LayerMask.NameToLayer("unpossessable") && !p)
 		{
+			shake.ShakeCamera(15/(2*state+1), timer);
 			aura.SetActive(true);
 			p = true;
 		}
@@ -112,6 +119,39 @@ public class Mortal : MonoBehaviour {
 			//ideally fade out
 			if(gameObject.layer == LayerMask.NameToLayer("possessable"))
 				aura.SetActive(false);
+		}
+		
+		if(gameObject.layer == LayerMask.NameToLayer("possessable") && p)
+		{
+			state--;
+			if(state < 0)
+			{
+				Instantiate(deathAnim, transform.position, transform.rotation);
+				Destroy(this.gameObject);
+			}
+			
+			switch(state)
+			{
+				case 0:
+					glow.GlowColor = Color.red;
+				break;
+				
+				case 1:
+					glow.GlowColor = Color.yellow;
+				break;
+				
+				case 2:
+					glow.GlowColor = Color.green;
+				break;
+				
+				case 3:
+					glow.GlowColor = Color.blue;
+				break;
+			}
+			
+			p = false;
+			elapsed = 0;
+			shake.shakeDuration = 0;
 		}
 	}
 	
