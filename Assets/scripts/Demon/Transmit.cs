@@ -87,7 +87,7 @@ public class Transmit : MonoBehaviour {
                // transform.parent.gameObject.layer = LayerMask.NameToLayer("possessable");
 
             //}
-            Debug.Log("Hitsdsdsdwfes!");
+           // Debug.Log("Hitsdsdsdwfes!");
             
             //transform.parent = pproj.GetComponent<bounce2point>().target.transform;
            pproj.GetComponent<bounce2point>().target.transform.gameObject.layer = 
@@ -95,6 +95,8 @@ public class Transmit : MonoBehaviour {
             transform.position = 
 				pproj.GetComponent<bounce2point>().target.transform.position + Vector3.up;
 			
+			if(host!=null)
+				host.gameObject.layer = LayerMask.NameToLayer("possessable");
 			host =  pproj.GetComponent<bounce2point>().target.transform;
             
             
@@ -104,7 +106,7 @@ public class Transmit : MonoBehaviour {
         }
         else if (pproj != null && pproj.GetComponent<bounce2point>().gottem != true &&  pproj.GetComponent<bounce2point>().end == true)
         {
-            Debug.Log("Hitsdsdsdwsdsdsdsdsdsfes!");
+            //Debug.Log("Hitsdsdsdwsdsdsdsdsdsfes!");
             haveshoot = false;
             Destroy(pproj);
             pproj = null;

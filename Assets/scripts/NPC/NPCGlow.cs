@@ -38,7 +38,6 @@ public class NPCGlow : MonoBehaviour {
 			
 		if(Vector3.Distance(transform.position, player.position)<3.5f)
 		{
-			Debug.Log("BLAH!");
 			_targetColor = Color.clear;
 		}
 	}

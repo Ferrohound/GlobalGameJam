@@ -10,10 +10,36 @@ public class Mortal : MonoBehaviour {
 	public float timer = 5;
 	float elapsed;
 	public bool p;
+	float radius = 3;
+	Vector3 original;
+	
+	[Range(0,3)]
+	public int state = 0;
+	NPCGlow glow;
 
 	// Use this for initialization
 	void Start () {
+		original = transform.position;
 		Player = GameObject.Find("Demon").GetComponent<Transmit>();
+		glow = GetComponent<NPCGlow>();
+		switch(state)
+		{
+			case 0:
+				glow.GlowColor = Color.red;
+			break;
+			
+			case 1:
+				glow.GlowColor = Color.yellow;
+			break;
+			
+			case 2:
+				glow.GlowColor = Color.green;
+			break;
+			
+			case 3:
+				glow.GlowColor = Color.blue;
+			break;
+		}
 		aura.SetActive(false);
 		p = false;
 		elapsed = 0;
@@ -21,6 +47,19 @@ public class Mortal : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(state == 3)
+		{
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			float moveVertical = Input.GetAxis ("Vertical");
+			
+			Vector3 movement = Player.transform.forward * moveVertical + 
+				Player.transform.right * moveHorizontal;
+				
+			if(Vector3.Distance(original, transform.position + (movement * Time.deltaTime * 3)) < 
+				radius)
+				transform.Translate(movement * Time.deltaTime * 3);
+		}
+		
 		if(gameObject.layer == LayerMask.NameToLayer("unpossessable"))
 		{
 			aura.SetActive(true);
@@ -37,14 +76,42 @@ public class Mortal : MonoBehaviour {
 		}
 		else if (p && elapsed > timer)
 		{
-			//show damage and reset timer
-			if(Player.host == this.transform)
+			
+			if(state != 3)
+				state--;
+			
+			if(state < 0)
 			{
-				Destroy(Player.gameObject);
-				elapsed = 0;
+				Instantiate(deathAnim, transform.position, transform.rotation);
+				Destroy(this.gameObject);
 			}
-			Instantiate(deathAnim, transform.position, transform.rotation);
-			Destroy(this.gameObject);
+			
+			//show damage and reset timer
+			switch(state)
+			{
+				case 0:
+					glow.GlowColor = Color.red;
+				break;
+				
+				case 1:
+					glow.GlowColor = Color.yellow;
+				break;
+				
+				case 2:
+					glow.GlowColor = Color.green;
+				break;
+				
+				case 3:
+					glow.GlowColor = Color.blue;
+				break;
+			}
+			
+			p = false;
+			elapsed = 0;
+			
+			//ideally fade out
+			if(gameObject.layer == LayerMask.NameToLayer("possessable"))
+				aura.SetActive(false);
 		}
 	}
 	
