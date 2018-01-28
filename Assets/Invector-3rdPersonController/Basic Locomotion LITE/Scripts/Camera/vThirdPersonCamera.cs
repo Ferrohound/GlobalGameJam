@@ -220,7 +220,7 @@ public class vThirdPersonCamera : MonoBehaviour
         targetLookAt.position = current_cPos;
 
         Quaternion newRot = Quaternion.Euler(mouseY, mouseX, 0);
-        targetLookAt.rotation = Quaternion.Slerp(targetLookAt.rotation, newRot, smoothCameraRotation * Time.deltaTime);
+        targetLookAt.rotation = newRot;
         transform.position = current_cPos + (camDir * (distance));
         var rotation = Quaternion.LookRotation((lookPoint) - transform.position);
 

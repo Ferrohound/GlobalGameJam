@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 public class Transmit : MonoBehaviour {
-	
+    static int life=3;
 	public Camera cam;
     private LineRenderer lr;
 	Ray ray;
@@ -95,6 +95,7 @@ public class Transmit : MonoBehaviour {
             haveshoot = false;
             Destroy(pproj);
             pproj = null;
+            life--;
         }
         /*else
             print("I'm looking at nothing!");

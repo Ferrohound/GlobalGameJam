@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4712121006a014babbe91481f95d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6.73
+  speed: 10
   pointstofollow:
   - {x: 12, y: 12, z: 12}
   - {x: 0, y: 0, z: 0}
