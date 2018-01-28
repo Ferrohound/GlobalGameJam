@@ -72,17 +72,19 @@ public class Transmit : MonoBehaviour {
 		}
         if ( pproj!=null &&pproj.GetComponent<bounce2point>().gottem == true)
         {
-            if (transform.parent != null)
-            {
+            //if (transform.parent != null)
+            //{
                 //fix this
-                transform.parent.gameObject.layer = LayerMask.NameToLayer("possessable");
+               // transform.parent.gameObject.layer = LayerMask.NameToLayer("possessable");
 
-            }
+            //}
             Debug.Log("Hitsdsdsdwfes!");
             
-            transform.parent = pproj.GetComponent<bounce2point>().target.transform;
-            transform.parent.gameObject.layer= LayerMask.NameToLayer("unpossessable");
-            transform.localPosition = Vector3.up;
+            //transform.parent = pproj.GetComponent<bounce2point>().target.transform;
+           pproj.GetComponent<bounce2point>().target.transform.gameObject.layer = 
+				LayerMask.NameToLayer("unpossessable");
+            transform.localPosition = 
+				pproj.GetComponent<bounce2point>().target.transform.position + Vector3.up;
             
             
             haveshoot = false;

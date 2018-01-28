@@ -13,6 +13,7 @@ public class LevelUnloader : MonoBehaviour {
 			return;
 		
 		SceneManager.UnloadSceneAsync(SceneName);
+		Destroy(this);
 	}
 	
 }

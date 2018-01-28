@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1b4e313c780cd0f4fa6b2f7d1acdd03e
-timeCreated: 1517138434
+timeCreated: 1517139600
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,8 @@ TextureImporter:
     21300006: DeathSpritesheet_4
     21300008: DeathSpritesheet_5
     21300010: DeathSpritesheet_6
+    21300012: DeathSpritesheet_1
+    21300014: DeathSpritesheet_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -89,7 +91,7 @@ TextureImporter:
         width: 71
         height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -103,7 +105,7 @@ TextureImporter:
         width: 93
         height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -117,7 +119,7 @@ TextureImporter:
         width: 87
         height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,7 +133,7 @@ TextureImporter:
         width: 88
         height: 191
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,6 +162,34 @@ TextureImporter:
         height: 192
       alignment: 9
       pivot: {x: 0.53711987, y: 0.54124475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DeathSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 7
+        width: 60
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DeathSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 0
+        width: 63
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

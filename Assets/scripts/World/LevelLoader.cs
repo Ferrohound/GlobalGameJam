@@ -25,8 +25,7 @@ public class LevelLoader : MonoBehaviour {
         //This is particularly good for creating loading screens. You could also load the Scene by build //number.
         Scene sceneToLoad = SceneManager.GetSceneByName(SceneName);
 		
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneName);
-		SceneManager.MoveGameObjectToScene(player, sceneToLoad);
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneName, LoadSceneMode.Additive);
 		
 		//SceneManager.MoveGameObjectToScene
 		
@@ -34,6 +33,16 @@ public class LevelLoader : MonoBehaviour {
         {
             yield return null;
         }
+		
+		//SceneManager.MoveGameObjectToScene(player, sceneToLoad);
+		
+		// get the scene we just loaded into the background
+        //Scene newScene = SceneManager.GetSceneByName(SceneName);
+ 
+         // move the gameobject from scene A to scene B
+         //SceneManager.MoveGameObjectToScene(player, newScene);
+		 
+		 Destroy(this);
 		
 	}
 }
