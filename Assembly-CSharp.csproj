@@ -76,6 +76,8 @@
      <Compile Include="Assets\scripts\Sprite\Billboard.cs" />
      <Compile Include="Assets\scripts\Sprite\Pixelate.cs" />
      <Compile Include="Assets\scripts\Sprite\Sprite25.cs" />
+     <Compile Include="Assets\scripts\World\LevelLoader.cs" />
+     <Compile Include="Assets\scripts\World\LevelUnloader.cs" />
      <Compile Include="Assets\waypoint.cs" />
      <None Include="Assets\shaders\NPCShader.shader" />
      <None Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\README_Basic.txt" />

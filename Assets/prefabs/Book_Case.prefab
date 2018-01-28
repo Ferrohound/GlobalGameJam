@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4733078461128492}
   - component: {fileID: 33608765284527072}
   - component: {fileID: 23218119526235324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: books
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33979989300314898}
   - component: {fileID: 23949379163433452}
   - component: {fileID: 65908248440045556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Book_Case
   m_TagString: Untagged
   m_Icon: {fileID: 0}
