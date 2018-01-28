@@ -13,9 +13,10 @@ public class LevelLoader : MonoBehaviour {
 	{
 		if(!used)
 		{
-			used = true;
 			if(col.tag != "Player")
 				return;
+			
+			used = true;
 			
 			player = col.transform.gameObject;
 			
