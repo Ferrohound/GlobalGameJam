@@ -18,6 +18,8 @@ public class Transmit : MonoBehaviour {
     private List<Vector3> bounces;
     private bool haveshoot = false;
     private GameObject pproj;
+	
+	public Transform host;
     // Use this for initialization
     void Start () 
 	{
@@ -29,6 +31,13 @@ public class Transmit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if(host!=null)
+		{
+			transform.position = 
+				host.position + Vector3.up;
+		}
+				
+				
         lr = GetComponent<LineRenderer>();
         bounces = new List<Vector3>();
         //Gizmos.color = Color.red;
@@ -83,8 +92,10 @@ public class Transmit : MonoBehaviour {
             //transform.parent = pproj.GetComponent<bounce2point>().target.transform;
            pproj.GetComponent<bounce2point>().target.transform.gameObject.layer = 
 				LayerMask.NameToLayer("unpossessable");
-            transform.localPosition = 
+            transform.position = 
 				pproj.GetComponent<bounce2point>().target.transform.position + Vector3.up;
+			
+			host =  pproj.GetComponent<bounce2point>().target.transform;
             
             
             haveshoot = false;

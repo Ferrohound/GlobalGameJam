@@ -6,6 +6,7 @@ public class NPCGlow : MonoBehaviour {
 
 	public Color GlowColor;
 	public float LerpFactor = 10;
+	public float range = 5;
 	
 	public Transform player;
 
@@ -70,7 +71,7 @@ public class NPCGlow : MonoBehaviour {
 		enabled = true;
 	}
 	
-	void OnTriggerEnter(Collider col)
+/*	void OnTriggerEnter(Collider col)
 	{
 		if(col.tag!="Player")
 		{
@@ -82,12 +83,12 @@ public class NPCGlow : MonoBehaviour {
 		_targetColor = GlowColor;
 		enabled = true;
 		
-	}
+	}*/
 	
 	void OnTriggerStay(Collider col)
 	{
 		//Debug.Log("Tag is " + col.tag);
-		if(col.tag!="Player")
+		/*if(col.tag!="Player")
 		{
 			//D/ebug.Log("Not you!");
 			return;
@@ -96,14 +97,15 @@ public class NPCGlow : MonoBehaviour {
 		Debug.Log("Glowing");
 		_targetColor = GlowColor;
 		enabled = true;
+		*/
 	}
 	
 	void OnTriggerExit(Collider col)
 	{
-		if(col.tag!="Player")
+		/*if(col.tag!="Player")
 			return;
 		
-		_targetColor = Color.clear;
+		_targetColor = Color.clear;*/
 		
 	}
 
@@ -112,7 +114,18 @@ public class NPCGlow : MonoBehaviour {
 	/// </summary>
 	private void Update()
 	{
-		_currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
+		if(Vector3.Distance(transform.position, player.position) < range)
+		{
+			Debug.Log("In range");
+			_targetColor = GlowColor;
+		}
+		else
+		{
+			_targetColor = Color.clear;
+		}
+		
+		_currentColor = /*Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);*/
+			_targetColor;
 
 		for (int i = 0; i < _materials.Count; i++)
 		{
