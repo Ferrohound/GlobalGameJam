@@ -25,6 +25,16 @@ public class Mortal : MonoBehaviour {
 	void Start () {
 		shake = Camera.main.GetComponent<CameraShake>();
 		
+		if(aura == null)
+		{
+			aura = (GameObject)Instantiate(Resources.Load("Aura"));
+		}
+		
+		if(deathAnim == null)
+		{
+			deathAnim = (GameObject)Instantiate(Resources.Load("Death"));
+		}
+		
 		original = transform.position;
 		Player = GameObject.Find("Demon").GetComponent<Transmit>();
 		glow = GetComponent<NPCGlow>();

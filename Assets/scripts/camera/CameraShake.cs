@@ -9,7 +9,9 @@ using System.Collections;
 public class CameraShake : MonoBehaviour {
  
 	public bool debugMode = false;//Test-run/Call ShakeCamera() on start
- 
+	
+	//const float maxShake = 10f;
+	//const float maxDuration = 1f;
 	public float shakeAmount;//The amount to shake this frame.
 	public float shakeDuration;//The duration this frame.
  
@@ -39,9 +41,9 @@ public class CameraShake : MonoBehaviour {
  
 	public void ShakeCamera(float amount, float duration) {
  
-		shakeAmount += amount;//Add to the current amount.
+		shakeAmount = amount;//Add to the current amount.
 		startAmount = shakeAmount;//Reset the start amount, to determine percentage.
-		shakeDuration += duration;//Add to the current time.
+		shakeDuration = duration;//Add to the current time.
 		startDuration = shakeDuration;//Reset the start time.
  
 		if(!isRunning) StartCoroutine (Shake());//Only call the coroutine if it isn't currently running. Otherwise, just set the variables.
