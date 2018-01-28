@@ -68,7 +68,7 @@ public class Mortal : MonoBehaviour {
 		
 		if(gameObject.layer == LayerMask.NameToLayer("unpossessable") && !p)
 		{
-			shake.ShakeCamera(15/(2*state+1), timer);
+			shake.ShakeCamera(7/(2*state+1), timer);
 			aura.SetActive(true);
 			p = true;
 		}

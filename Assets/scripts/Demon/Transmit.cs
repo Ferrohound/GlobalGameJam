@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class Transmit : MonoBehaviour {
     static int life=3;
@@ -171,7 +170,7 @@ public class Transmit : MonoBehaviour {
 		return (originalDirection - 2 * (Vector3.Dot(originalDirection, normal.normalized)) * normal);
 	}*/	
 	
-	void OnDrawGizmos()
+	/*void OnDrawGizmos()
 	{
 		Handles.color = Color.red;
 		Handles.ArrowHandleCap(0, this.transform.position + this.transform.forward * 0.25f, this.transform.rotation, 0.5f, EventType.Repaint);
@@ -181,5 +180,5 @@ public class Transmit : MonoBehaviour {
 		Gizmos.color = Color.red;
 		if(cam!=null)
 			Gizmos.DrawRay(cam.transform.position, ray.direction * 100);
-	}
+	}*/
 }
