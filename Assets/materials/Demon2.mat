@@ -66,8 +66,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ScaleX: 3
-    - _ScaleY: 4
+    - _ScaleX: 6
+    - _ScaleY: 8
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
