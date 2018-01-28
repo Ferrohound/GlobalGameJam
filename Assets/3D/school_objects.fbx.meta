@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 71217d042804a074ea2e03f76acf1b37
+timeCreated: 1517121507
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Bin
+    100002: Board_Window
+    100004: book
+    100006: Book_Case
+    100008: books
+    100010: cabinet
+    100012: Desk_Chair
+    100014: Door
+    100016: //RootNode
+    100018: sign
+    100020: Table
+    100022: Tank
+    400000: Bin
+    400002: Board_Window
+    400004: book
+    400006: Book_Case
+    400008: books
+    400010: cabinet
+    400012: Desk_Chair
+    400014: Door
+    400016: //RootNode
+    400018: sign
+    400020: Table
+    400022: Tank
+    2300000: Bin
+    2300002: Board_Window
+    2300004: book
+    2300006: Book_Case
+    2300008: books
+    2300010: cabinet
+    2300012: Desk_Chair
+    2300014: Door
+    2300016: sign
+    2300018: Table
+    2300020: Tank
+    3300000: Bin
+    3300002: Board_Window
+    3300004: book
+    3300006: Book_Case
+    3300008: books
+    3300010: cabinet
+    3300012: Desk_Chair
+    3300014: Door
+    3300016: sign
+    3300018: Table
+    3300020: Tank
+    4300000: Desk_Chair
+    4300002: Book_Case
+    4300004: Table
+    4300006: Tank
+    4300008: Board_Window
+    4300010: Bin
+    4300012: Door
+    4300014: sign
+    4300016: book
+    4300018: books
+    4300020: cabinet
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
