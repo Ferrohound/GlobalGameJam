@@ -7,15 +7,20 @@ public class LevelLoader : MonoBehaviour {
 	
 	public string SceneName;
 	public GameObject player;
+	bool used = false;
 
 	void OnTriggerEnter(Collider col)
 	{
-		if(col.tag != "Player")
-			return;
-		
-		player = col.transform.gameObject;
-		
-		StartCoroutine("LoadAsyncScene");
+		if(!used)
+		{
+			used = true;
+			if(col.tag != "Player")
+				return;
+			
+			player = col.transform.gameObject;
+			
+			StartCoroutine("LoadAsyncScene");
+		}
 		
 	}
 
