@@ -53,7 +53,8 @@ public class Transmit : MonoBehaviour {
             //don't even really need any of this, I guess...
             //just shoot yourself in the direction of the ray
             haveshoot = true;
-            
+            AudioSource audi = GetComponent<AudioSource>();
+            audi.Play();
             pproj = Instantiate(pp, wheretoshootfrom.position, wheretoshootfrom.rotation);
             pproj.GetComponent<bounce2point>().pointstofollow = new List<Vector3>(bounces);
             

@@ -11,13 +11,15 @@ public class bounce2point : MonoBehaviour {
     public bool end = false;
     public bool gottem = false;
     public GameObject target;
+    private float lifetime=0;
 	void Start () {
         
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
+        if (lifetime > 4f) { end = true; return; }
         if (i >= pointstofollow.Count) { end = true; return; }
         float step = speed * Time.deltaTime;
         Vector3 target = pointstofollow[i];
@@ -27,6 +29,7 @@ public class bounce2point : MonoBehaviour {
         {
             i++;
         }
+        lifetime += Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {
