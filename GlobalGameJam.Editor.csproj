@@ -130,6 +130,8 @@
   <ItemGroup>
     <None Include="Assets\Invector-3rdPersonController\Basic Locomotion LITE\README_Basic.txt" />
     <None Include="Assets\shaders\BillboardShader.shader" />
+    <None Include="Assets\shaders\ItemShader.shader" />
+    <None Include="Assets\shaders\NPCShader.shader" />
     <None Include="Assets\shaders\imgEff\Pixelate.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
