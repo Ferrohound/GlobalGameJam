@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode()]
 public class NPCGlow : MonoBehaviour {
 
 	public Color GlowColor;
 	public float LerpFactor = 10;
-	public float range = 5;
+	public float range = 15;
 	
 	public Transform player;
 
@@ -123,9 +124,9 @@ public class NPCGlow : MonoBehaviour {
 		{
 			_targetColor = Color.clear;
 		}
-		
-		_currentColor = /*Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);*/
-			_targetColor;
+	
+		_currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
+			//_targetColor;
 
 		for (int i = 0; i < _materials.Count; i++)
 		{
