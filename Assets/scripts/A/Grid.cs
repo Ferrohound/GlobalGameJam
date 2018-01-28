@@ -12,6 +12,9 @@ public class Grid : MonoBehaviour {
 	
 	int resolutionX, resolutionY;
 	
+	public Transform target;
+	Node t;
+	
 	public int MaxSize()
 	{
 		return resolutionX * resolutionY;
@@ -56,8 +59,8 @@ public class Grid : MonoBehaviour {
 	public Node WorldtoNode(Vector3 position)
 	{
 		//center is 0
-		float pX = (transform.position.x - position.x + gridSize.x/2)/gridSize.x;
-		float pY = (transform.position.z - position.z + gridSize.y/2)/gridSize.y;
+		float pX = (position.x + gridSize.x/2)/gridSize.x;
+		float pY = (position.z + gridSize.y/2)/gridSize.y;
 		
 		pX = Mathf.Clamp01(pX);
 		pY = Mathf.Clamp01(pY);
@@ -98,9 +101,17 @@ public class Grid : MonoBehaviour {
 		
 		if(grid!=null)
 		{
+			t = WorldtoNode(target.localPosition);
 			foreach( Node n in grid)
 			{
-				Gizmos.color = (n.walkable) ? Color.white : Color.red;
+				if(t == n)
+				{
+					Gizmos.color = Color.yellow;
+				}
+				else
+				{
+					Gizmos.color = (n.walkable) ? Color.white : Color.red;
+				}
 				Gizmos.DrawCube(n.position, Vector3.one * (nodeDiameter - 0.1f));
 			}
 		}

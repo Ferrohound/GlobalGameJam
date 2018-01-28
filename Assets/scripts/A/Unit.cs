@@ -118,7 +118,8 @@ public class Unit : MonoBehaviour {
 			yield return new WaitForSeconds(0.5f);
 		}
 		
-		PathManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+		PathManager.RequestPath(new PathRequest(transform.localPosition, 
+			target.localPosition, OnPathFound));
 		
 		float squareMoveT = TargetMoveThres * TargetMoveThres;
 		Vector3 prevPos = target.position;
@@ -128,7 +129,8 @@ public class Unit : MonoBehaviour {
 			yield return new WaitForSeconds(MinPathUpdateTime);
 			if((target.position - prevPos).sqrMagnitude > squareMoveT)
 			{
-				PathManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+				PathManager.RequestPath(new PathRequest(transform.localPosition, 
+					target.localPosition, OnPathFound));
 				prevPos = target.position;
 			}
 		}
