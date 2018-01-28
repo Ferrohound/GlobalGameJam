@@ -6,9 +6,9 @@ using UnityEngine;
 public class Pixelate : MonoBehaviour {
 	
 	private Material _pixelMat;
-	[Range(1, 200)]
+	[Range(1, 300)]
 	public float xRes; 
-	[Range(1, 200)]
+	[Range(1, 300)]
 	public float yRes;
 	
 	void OnEnable()

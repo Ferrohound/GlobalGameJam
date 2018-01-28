@@ -5,7 +5,7 @@ using UnityEngine;
 public class bounce2point : MonoBehaviour {
 
     // Use this for initialization
-    public float speed = 10f;
+    public float speed = 40f;
     public List<Vector3> pointstofollow;
     private int i=0;
     public bool end = false;
@@ -22,6 +22,7 @@ public class bounce2point : MonoBehaviour {
         float step = speed * Time.deltaTime;
         Vector3 target = pointstofollow[i];
         transform.position = Vector3.MoveTowards(transform.position, target , step);
+		transform.LookAt(target);
         if (Vector3.Distance(transform.position,pointstofollow[i]) <= 0.5f)
         {
             i++;
